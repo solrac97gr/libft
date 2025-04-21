@@ -6,7 +6,7 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 19:42:59 by carloga2          #+#    #+#             */
-/*   Updated: 2025/04/21 19:49:17 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/04/21 19:52:01 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ void	if_is_not_digit_return_0(void)
 
 int	main(void)
 {
-    if_is_digit_return_1();
-    if_is_not_digit_return_0();
+	if_is_digit_return_1();
+	if_is_not_digit_return_0();
 }
