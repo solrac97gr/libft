@@ -6,6 +6,10 @@ RED='\033[0;31m'
 YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 
+# Change to the project root directory if script is run from scripts folder
+SCRIPT_DIR=$(dirname "$0")
+cd "$SCRIPT_DIR/.." || exit 1
+
 echo -e "${YELLOW}=== Libft Tests Runner ===${NC}"
 echo ""
 

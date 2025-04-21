@@ -25,8 +25,11 @@ jobs:
       run: |
         mkdir -p release/include
         mkdir -p release/lib
+        mkdir -p release/scripts
         cp libft.a release/lib/
         cp libft.h release/include/
+        cp scripts/install.sh release/
+        cp scripts/run_tests.sh release/scripts/
         cd release && zip -r ../libft-${{ github.ref_name }}.zip .
       
     - name: Create Release

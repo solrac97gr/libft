@@ -42,7 +42,7 @@ make
 git clone https://github.com/solrac97gr/libft.git
 cd libft
 make
-sudo ./install.sh
+sudo ./scripts/install.sh
 ```
 Then in your projects:
 ```bash
@@ -77,7 +77,7 @@ int main() {
 
 Run the tests with:
 ```bash
-./run_tests.sh
+./scripts/run_tests.sh
 ```
 
 ## License

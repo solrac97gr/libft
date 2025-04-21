@@ -55,7 +55,7 @@ re: fclean all
 
 # Run all tests
 test: $(NAME)
-	./run_tests.sh
+	./scripts/run_tests.sh
 
 # Non-file targets
 .PHONY: all clean fclean re test
