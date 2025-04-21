@@ -1,0 +1,70 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*' # Trigger on tags like v1.0, v0.1.2, etc.
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y build-essential
+      
+    - name: Build libft
+      run: make
+      
+    - name: Package library
+      run: |
+        mkdir -p release/include
+        mkdir -p release/lib
+        cp libft.a release/lib/
+        cp libft.h release/include/
+        cd release && zip -r ../libft-${{ github.ref_name }}.zip .
+      
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref_name }}
+        draft: false
+        prerelease: false
+        body: |
+          # Libft Release ${{ github.ref_name }}
+          
+          This release contains the compiled libft library and header files.
+          
+          ## Installation
+          
+          1. Download the zip file
+          2. Extract it to your project directory
+          3. Include it in your project:
+          
+          ```c
+          #include "include/libft.h"
+          ```
+          
+          ## Compilation
+          
+          When compiling your program, link against the library:
+          
+          ```bash
+          gcc your_program.c -I./include -L./lib -lft
+          ```
+          
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./libft-${{ github.ref_name }}.zip
+        asset_name: libft-${{ github.ref_name }}.zip
+        asset_content_type: application/zip
