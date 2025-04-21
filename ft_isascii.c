@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 19:43:04 by carloga2          #+#    #+#             */
-/*   Updated: 2025/04/21 19:54:55 by carloga2         ###   ########.fr       */
+/*   Created: 2025/04/21 20:40:00 by carloga2          #+#    #+#             */
+/*   Updated: 2025/04/21 20:40:00 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FUNCTIONS_H_INCLUDED
-# define FUNCTIONS_H_INCLUDED
+#include "libft.h"
 
-int	ft_isalpha(int a);
-int	ft_isdigit(int a);
-int	ft_isalnum(int a);
-int	ft_isascii(int a);
-
-#endif
+/*
+ft_isascii check the char for validate if it is ascii value
+- if is ascii: 1
+- if is not ascii: 0
+ascii char are between: 0 - 127
+*/
+int	ft_isascii(int c)
+{
+	if (c >= 0 && c <= 127)
+	{
+		return (1);
+	}
+	return (0);
+}
