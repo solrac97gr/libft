@@ -14,37 +14,37 @@
 #include <ctype.h>
 #include <stdio.h>
 
-void	if_is_alpha_get_uppercase_return_1024(void)
+void	if_is_alpha_get_uppercase_return_nonzero(void)
 {
-	int	res;
-	int	expected;
+	int	res_is_nonzero;
+	int	expected_is_nonzero;
 
-	res = ft_isalpha('B');
-	expected = isalpha('B');
-	if (res != expected)
+	res_is_nonzero = ft_isalpha('B') != 0;
+	expected_is_nonzero = isalpha('B') != 0;
+	if (res_is_nonzero != expected_is_nonzero)
 	{
-		printf("[FAIL] if_is_alpha_get_uppercase_return_1024\n");
+		printf("[FAIL] if_is_alpha_get_uppercase_return_nonzero\n");
 	}
 	else
 	{
-		printf("[PASS] if_is_alpha_get_uppercase_return_1024\n");
+		printf("[PASS] if_is_alpha_get_uppercase_return_nonzero\n");
 	}
 }
 
-void	if_is_alpha_get_lowercase_return_1024(void)
+void	if_is_alpha_get_lowercase_return_nonzero(void)
 {
-	int	res;
-	int	expected;
+	int	res_is_nonzero;
+	int	expected_is_nonzero;
 
-	res = ft_isalpha('a');
-	expected = isalpha('a');
-	if (res != expected)
+	res_is_nonzero = ft_isalpha('a') != 0;
+	expected_is_nonzero = isalpha('a') != 0;
+	if (res_is_nonzero != expected_is_nonzero)
 	{
-		printf("[FAIL] if_is_alpha_get_lowercase_return_1024\n");
+		printf("[FAIL] if_is_alpha_get_lowercase_return_nonzero\n");
 	}
 	else
 	{
-		printf("[PASS] if_is_alpha_get_lowercase_return_1024\n");
+		printf("[PASS] if_is_alpha_get_lowercase_return_nonzero\n");
 	}
 }
 
@@ -67,7 +67,7 @@ void	if_is_alpha_get_not_alpha_return_0(void)
 
 int	main(void)
 {
-	if_is_alpha_get_uppercase_return_1024();
-	if_is_alpha_get_lowercase_return_1024();
+	if_is_alpha_get_uppercase_return_nonzero();
+	if_is_alpha_get_lowercase_return_nonzero();
 	if_is_alpha_get_not_alpha_return_0();
 }

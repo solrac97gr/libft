@@ -14,37 +14,37 @@
 #include <ctype.h>
 #include <stdio.h>
 
-void	if_isalnum_get_digit_return_1(void)
+void	if_isalnum_get_digit_return_nonzero(void)
 {
-	int	res;
-	int	expected;
+	int	res_is_nonzero;
+	int	expected_is_nonzero;
 
-	res = ft_isalnum(5);
-	expected = isalnum(5);
-	if (res != expected)
+	res_is_nonzero = ft_isalnum(5) != 0;
+	expected_is_nonzero = isalnum(5) != 0;
+	if (res_is_nonzero != expected_is_nonzero)
 	{
-		printf("[FAIL] if_isalnum_get_digit_return_1\n");
+		printf("[FAIL] if_isalnum_get_digit_return_nonzero\n");
 	}
 	else
 	{
-		printf("[PASS] if_isalnum_get_digit_return_1\n");
+		printf("[PASS] if_isalnum_get_digit_return_nonzero\n");
 	}
 }
 
-void	if_isalnum_get_letter_return_1(void)
+void	if_isalnum_get_letter_return_nonzero(void)
 {
-	int	res;
-	int	expected;
+	int	res_is_nonzero;
+	int	expected_is_nonzero;
 
-	res = ft_isalnum('A');
-	expected = isalnum('A');
-	if (res != expected)
+	res_is_nonzero = ft_isalnum('A') != 0;
+	expected_is_nonzero = isalnum('A') != 0;
+	if (res_is_nonzero != expected_is_nonzero)
 	{
-		printf("[FAIL] if_isalnum_get_letter_return_1\n");
+		printf("[FAIL] if_isalnum_get_letter_return_nonzero\n");
 	}
 	else
 	{
-		printf("[PASS] if_isalnum_get_letter_return_1\n");
+		printf("[PASS] if_isalnum_get_letter_return_nonzero\n");
 	}
 }
 
@@ -67,7 +67,7 @@ void	if_isalnum_get_symbol_return_0(void)
 
 int	main(void)
 {
-	if_isalnum_get_digit_return_1();
-	if_isalnum_get_letter_return_1();
+	if_isalnum_get_digit_return_nonzero();
+	if_isalnum_get_letter_return_nonzero();
 	if_isalnum_get_symbol_return_0();
 }

@@ -14,37 +14,37 @@
 #include <ctype.h>
 #include <stdio.h>
 
-void	if_isprint_get_printable_return_1(void)
+void	if_isprint_get_printable_return_nonzero(void)
 {
-	int	res;
-	int	expected;
+	int	res_is_nonzero;
+	int	expected_is_nonzero;
 
-	res = ft_isprint('A');
-	expected = isprint('A');
-	if (res != expected)
+	res_is_nonzero = ft_isprint('A') != 0;
+	expected_is_nonzero = isprint('A') != 0;
+	if (res_is_nonzero != expected_is_nonzero)
 	{
-		printf("[FAIL] if_isprint_get_printable_return_1\n");
+		printf("[FAIL] if_isprint_get_printable_return_nonzero\n");
 	}
 	else
 	{
-		printf("[PASS] if_isprint_get_printable_return_1\n");
+		printf("[PASS] if_isprint_get_printable_return_nonzero\n");
 	}
 }
 
-void	if_isprint_get_space_return_1(void)
+void	if_isprint_get_space_return_nonzero(void)
 {
-	int	res;
-	int	expected;
+	int	res_is_nonzero;
+	int	expected_is_nonzero;
 
-	res = ft_isprint(' ');
-	expected = isprint(' ');
-	if (res != expected)
+	res_is_nonzero = ft_isprint(' ') != 0;
+	expected_is_nonzero = isprint(' ') != 0;
+	if (res_is_nonzero != expected_is_nonzero)
 	{
-		printf("[FAIL] if_isprint_get_space_return_1\n");
+		printf("[FAIL] if_isprint_get_space_return_nonzero\n");
 	}
 	else
 	{
-		printf("[PASS] if_isprint_get_space_return_1\n");
+		printf("[PASS] if_isprint_get_space_return_nonzero\n");
 	}
 }
 
@@ -86,8 +86,8 @@ void	if_isprint_get_extended_char_return_0(void)
 
 int	main(void)
 {
-	if_isprint_get_printable_return_1();
-	if_isprint_get_space_return_1();
+	if_isprint_get_printable_return_nonzero();
+	if_isprint_get_space_return_nonzero();
 	if_isprint_get_control_char_return_0();
 	if_isprint_get_extended_char_return_0();
 }
