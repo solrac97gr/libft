@@ -1,0 +1,56 @@
+name: Libft Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y build-essential
+      
+    - name: Build libft
+      run: make
+      
+    - name: Run make clean and verify .o files are removed
+      run: |
+        make clean
+        if [ -n "$(find . -name '*.o')" ]; then
+          echo "make clean did not remove all .o files"
+          exit 1
+        fi
+        
+    - name: Rebuild for tests
+      run: make
+      
+    - name: Run tests
+      run: |
+        chmod +x run_tests.sh
+        ./run_tests.sh | tee test_output.txt
+        if grep -q "\[FAIL\]" test_output.txt; then
+          echo "Some tests failed"
+          exit 1
+        fi
+        
+    - name: Run make fclean and verify library is removed
+      run: |
+        make fclean
+        if [ -f "libft.a" ]; then
+          echo "make fclean did not remove the library"
+          exit 1
+        fi
+        
+    - name: Test make re
+      run: |
+        make re
+        if [ ! -f "libft.a" ]; then
+          echo "make re did not rebuild the library"
+          exit 1
+        fi
