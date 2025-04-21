@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 19:43:04 by carloga2          #+#    #+#             */
-/*   Updated: 2025/04/21 19:43:05 by carloga2         ###   ########.fr       */
+/*   Created: 2025/04/21 19:43:32 by carloga2          #+#    #+#             */
+/*   Updated: 2025/04/21 19:48:21 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FUNCTIONS_H_INCLUDED
-#define FUNCTIONS_H_INCLUDED
-
-int ft_isalpha(int a);
-int ft_isdigit(int a);
-
-#endif
+/*
+isdigit check the char for validate if it is digit
+- if is digit: 1024
+- if is not alphabetic: 0
+digit char are between: 48-57
+*/
+int	ft_isdigit(int c)
+{
+	if (c >= 48 && c <= 57)
+	{
+		return (1);
+	}
+	return (0);
+}
