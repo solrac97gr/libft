@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 /*
 isdigit check the char for validate if it is digit
 - if is digit: 1

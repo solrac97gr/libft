@@ -10,9 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 /*
 isalpha check the char for validate if it is alphabetic
-- if is alphabetic: 1024
+- if is alphabetic: 1
 - if is not alphabetic: 0
 alphabetic char are between: 65-90 and 97 - 122
 */
@@ -20,7 +22,7 @@ int	ft_isalpha(int c)
 {
 	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 	{
-		return (1024);
+		return (1);
 	}
 	return (0);
 }

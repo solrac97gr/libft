@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 /*
 ft_isalnum check the char for validate if it is alphanumeric
 - if is alphanumeric: 1
@@ -19,7 +21,7 @@ digit char are between: 48-57
 */
 int	ft_isalnum(int c)
 {
-	if (ft_isalpha(c) == 1024 || ft_isdigit(c) == 1)
+	if (ft_isalpha(c) == 1 || ft_isdigit(c) == 1)
 	{
 		return (1);
 	}
