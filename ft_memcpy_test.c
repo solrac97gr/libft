@@ -21,7 +21,6 @@ void	test_memcpy_normal(void)
 	char	dest1[20];
 	char	dest2[20];
 	void	*ret1;
-	void	*ret2;
 
 	// Initialize destination buffers
 	ft_bzero(dest1, 20);
@@ -29,7 +28,7 @@ void	test_memcpy_normal(void)
 	
 	// Copy 13 bytes from src to destinations
 	ret1 = ft_memcpy(dest1, src, 13);
-	ret2 = memcpy(dest2, src, 13);
+	memcpy(dest2, src, 13);
 	
 	// Verify results are correct
 	if (memcmp(dest1, dest2, 20) != 0 || ret1 != dest1)
@@ -116,7 +115,6 @@ void	test_memcpy_overlap_safe(void)
 
 void	test_memcpy_null(void)
 {
-	char	buffer[20];
 	void	*result;
 	
 	// Test with NULL source and destination but size 0 (should return NULL)
