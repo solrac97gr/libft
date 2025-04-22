@@ -21,6 +21,7 @@ Libft is a personal recreation of some useful standard C library functions. This
 ### Memory Functions
 - `ft_memset` - Fill memory with a constant byte
 - `ft_bzero` - Fill memory with zeros
+- `ft_memcpy` - Copy memory area
 
 ## Installation
 

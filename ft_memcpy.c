@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 19:43:04 by carloga2          #+#    #+#             */
-/*   Updated: 2025/04/21 19:54:55 by carloga2         ###   ########.fr       */
+/*   Created: 2025/04/21 23:35:00 by carloga2          #+#    #+#             */
+/*   Updated: 2025/04/21 23:35:00 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FUNCTIONS_H_INCLUDED
-# define FUNCTIONS_H_INCLUDED
+#include "libft.h"
 
-# include <stddef.h>
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char	*d;
+	const unsigned char	*s;
 
-int		ft_isalpha(int a);
-int		ft_isdigit(int a);
-int		ft_isalnum(int a);
-int		ft_isascii(int a);
-int		ft_isprint(int a);
-size_t	ft_strlen(const char *s);
-void	*ft_memset(void *s, int c, size_t n);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-
-#endif
+	if (!dest && !src)
+		return (NULL);
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
+	while (n--)
+		*d++ = *s++;
+	return (dest);
+}
