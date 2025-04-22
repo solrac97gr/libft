@@ -20,13 +20,14 @@ Libft is a personal recreation of some useful standard C library functions. This
 
 ### Memory Functions
 - `ft_memset` - Fill memory with a constant byte
+- `ft_bzero` - Fill memory with zeros
 
 ## Installation
 
 ### Option 1: Download the latest release
 1. Go to the GitHub releases page
 2. Download the latest release zip file
-3. Extract it to your project 
+3. Extract it to your project
 4. Include it in your code with: `#include "include/libft.h"`
 5. Compile with: `gcc your_program.c -I./include -L./lib -lft`
 
@@ -57,18 +58,18 @@ gcc your_program.c $(pkg-config --cflags --libs libft)
 
 int main() {
     char str[] = "Hello, World!";
-    
+
     printf("Length of string: %zu\n", ft_strlen(str));
-    
+
     if (ft_isalpha('A')) {
         printf("A is an alphabet character\n");
     }
-    
+
     char buffer[10];
     ft_memset(buffer, 'X', 10);
     buffer[9] = '\0';
     printf("Buffer after memset: %s\n", buffer);
-    
+
     return 0;
 }
 ```
