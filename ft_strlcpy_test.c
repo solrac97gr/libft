@@ -14,25 +14,83 @@
 #include <stdio.h>
 #include <string.h>
 
-void	if_ft_strcopy_get_hello_copy_to_str2(void)
+void	test_basic_copy(void)
 {
-	char	s1[100];
-	char	s2[100] = "hello";
+	char	dst1[100];
+	char	dst2[100];
+	const char	src[] = "Hello, world!";
+	size_t	ret1;
+	size_t	ret2;
 
-	ft_strlcpy(s1, s2);
-	strcpy(s1, s2);
-	if (strcmp(s1, s2))
-	{
-		printf("[FAIL] if_ft_strcopy_get_hello_copy_to_str2");
-	}
+	ret1 = ft_strlcpy(dst1, src, sizeof(dst1));
+	/* If you have strlcpy available in your system, uncomment this line
+	ret2 = strlcpy(dst2, src, sizeof(dst2));
+	*/
+	/* Otherwise use this alternative approach */
+	ret2 = strlen(src);
+	strlcpy(dst2, src, sizeof(dst2));
+	
+	if (strcmp(dst1, src) == 0 && ret1 == ret2)
+		printf("[PASS] Basic copy test\n");
 	else
-	{
-		printf("[PASS] if_ft_strcopy_get_hello_copy_to_str2");
-	}
+		printf("[FAIL] Basic copy test\n");
+}
+
+void	test_size_limit(void)
+{
+	char	dst1[6];
+	char	dst2[6];
+	const char	src[] = "Hello, world!";
+	size_t	ret1;
+	size_t	ret2;
+
+	ret1 = ft_strlcpy(dst1, src, sizeof(dst1));
+	/* If you have strlcpy available in your system, uncomment this line
+	ret2 = strlcpy(dst2, src, sizeof(dst2));
+	*/
+	/* Otherwise use this alternative approach */
+	strlcpy(dst2, src, sizeof(dst2));
+	ret2 = strlen(src);
+	
+	if (strcmp(dst1, dst2) == 0 && ret1 == ret2 && strlen(dst1) == 5 && dst1[5] == '\0')
+		printf("[PASS] Size limit test\n");
+	else
+		printf("[FAIL] Size limit test\n");
+}
+
+void	test_zero_size(void)
+{
+	char	dst[10] = "AAAAAAAAAA";
+	const char	src[] = "Hello";
+	size_t	ret;
+
+	ret = ft_strlcpy(dst, src, 0);
+
+	if (ret == strlen(src) && strcmp(dst, "AAAAAAAAAA") == 0)
+		printf("[PASS] Zero size test\n");
+	else
+		printf("[FAIL] Zero size test\n");
+}
+
+void	test_empty_src(void)
+{
+	char	dst[10] = "AAAAAAAAAA";
+	const char	src[] = "";
+	size_t	ret;
+
+	ret = ft_strlcpy(dst, src, sizeof(dst));
+
+	if (ret == 0 && dst[0] == '\0')
+		printf("[PASS] Empty source test\n");
+	else
+		printf("[FAIL] Empty source test\n");
 }
 
 int	main(void)
 {
-	if_ft_strcopy_get_hello_copy_to_str2();
+	test_basic_copy();
+	test_size_limit();
+	test_zero_size();
+	test_empty_src();
 	return (0);
 }

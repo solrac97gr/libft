@@ -11,16 +11,33 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+
 /*
-ft_strcpy function copies string2, including the ending null character, to the location that is specified by string1.
+* ft_strlcpy copies up to size - 1 characters from the NUL-terminated string src
+* to dst, NUL-terminating the result. It returns the total length of the string
+* it tried to create (the length of src).
 */
-char *ft_strlcpy(char *string1, const char *string2)
-{    
-    while(*string2!='\0')
-    {
-        *string1++=*string2++;
-    }
-    *string1='\0';
-    return string1;
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	src_len;
+	size_t	i;
+
+	src_len = 0;
+	i = 0;
+	/* Get length of source string */
+	while (src[src_len] != '\0')
+		src_len++;
+	/* If size is 0, just return src length */
+	if (size == 0)
+		return (src_len);
+	/* Copy at most size-1 characters to leave room for NULL terminator */
+	while (src[i] != '\0' && i < (size - 1))
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	/* Ensure NULL termination */
+	dst[i] = '\0';
+	return (src_len);
 }
 
