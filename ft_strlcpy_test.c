@@ -50,13 +50,19 @@ void	test_size_limit(void)
 
 void	test_zero_size(void)
 {
-	char	dst[10] = "AAAAAAAAAA";
+	char	dst1[10] = "AAAAAAAAAA";
+	char	dst2[10] = "AAAAAAAAAA";
 	const char	src[] = "Hello";
-	size_t	ret;
+	size_t	ret1;
+	size_t	ret2;
 
-	ret = ft_strlcpy(dst, src, 0);
+	ret1 = ft_strlcpy(dst1, src, 0);
+	ret2 = strlcpy(dst2, src, 0);
 
-	if (ret == strlen(src) && strcmp(dst, "AAAAAAAAAA") == 0)
+	/* Both should return src length and leave dst unchanged */
+	if (ret1 == strlen(src) && ret1 == ret2 && 
+		memcmp(dst1, "AAAAAAAAAA", 10) == 0 &&
+		memcmp(dst2, "AAAAAAAAAA", 10) == 0)
 		printf("[PASS] Zero size test\n");
 	else
 		printf("[FAIL] Zero size test\n");
