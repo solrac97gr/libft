@@ -6,7 +6,7 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 19:43:04 by carloga2          #+#    #+#             */
-/*   Updated: 2025/04/21 19:54:55 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/04/23 19:29:27 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
+char	*ft_strlcpy(char *string1, const char *string2);
 
 #endif
