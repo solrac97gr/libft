@@ -23,12 +23,7 @@ void	test_basic_copy(void)
 	size_t	ret2;
 
 	ret1 = ft_strlcpy(dst1, src, sizeof(dst1));
-	/* If you have strlcpy available in your system, uncomment this line
 	ret2 = strlcpy(dst2, src, sizeof(dst2));
-	*/
-	/* Otherwise use this alternative approach */
-	ret2 = strlen(src);
-	strlcpy(dst2, src, sizeof(dst2));
 	
 	if (strcmp(dst1, src) == 0 && ret1 == ret2)
 		printf("[PASS] Basic copy test\n");
@@ -45,12 +40,7 @@ void	test_size_limit(void)
 	size_t	ret2;
 
 	ret1 = ft_strlcpy(dst1, src, sizeof(dst1));
-	/* If you have strlcpy available in your system, uncomment this line
 	ret2 = strlcpy(dst2, src, sizeof(dst2));
-	*/
-	/* Otherwise use this alternative approach */
-	strlcpy(dst2, src, sizeof(dst2));
-	ret2 = strlen(src);
 	
 	if (strcmp(dst1, dst2) == 0 && ret1 == ret2 && strlen(dst1) == 5 && dst1[5] == '\0')
 		printf("[PASS] Size limit test\n");
