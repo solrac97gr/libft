@@ -15,6 +15,9 @@ Libft is a personal recreation of some useful standard C library functions. This
 - `ft_isascii` - Check if character is in the ASCII set
 - `ft_isprint` - Check if character is printable
 
+### Character Conversion Functions
+- `ft_toupper` - Convert a lowercase letter to uppercase
+
 ### String Manipulation Functions
 - `ft_strlen` - Calculate the length of a string
 - `ft_strlcpy` - Size-bounded string copying
