@@ -17,6 +17,7 @@ Libft is a personal recreation of some useful standard C library functions. This
 
 ### Character Conversion Functions
 - `ft_toupper` - Convert a lowercase letter to uppercase
+- `ft_tolower` - Convert an uppercase letter to lowercase
 
 ### String Manipulation Functions
 - `ft_strlen` - Calculate the length of a string
