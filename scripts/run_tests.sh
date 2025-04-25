@@ -37,6 +37,8 @@ for test_file in $(ls ft_*_test.c 2>/dev/null); do
     
     # Compile and link the test with our library
     gcc -Wall -Wextra -Werror ${test_file} -L. -lft -o temp_test
+
+    #TODO: we are not caching the segmentation faults in the scripts only compilation error and error in the test
     
     if [ $? -eq 0 ]; then
         # Run the test and capture output
