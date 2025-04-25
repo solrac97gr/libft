@@ -6,13 +6,14 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 20:50:52 by carloga2          #+#    #+#             */
-/*   Updated: 2025/04/25 21:14:46 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/04/25 21:18:09 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 void	test_if_a_is_found_return_pointer_to_position(void)
 {
@@ -24,11 +25,11 @@ void	test_if_a_is_found_return_pointer_to_position(void)
 	expected = strchr(s, 3);
 	if (result != expected)
 	{
-		printf("[FAIL] if_a_is_found_return_pointer_to_position");
+		printf("[FAIL] if_a_is_found_return_pointer_to_position\n");
 	}
 	else
 	{
-		printf("[PASS] if_a_is_found_return_pointer_to_position");
+		printf("[PASS] if_a_is_found_return_pointer_to_position\n");
 	}
 }
 
@@ -42,11 +43,11 @@ void	test_if_x__is_not_found_return_pointer_to_null(void)
 	expected = strchr(s, 9);
 	if (result != expected)
 	{
-		printf("[FAIL] test_if_x__is_not_found_return_pointer_to_null");
+		printf("[FAIL] test_if_x__is_not_found_return_pointer_to_null\n");
 	}
 	else
 	{
-		printf("[PASS] test_if_x__is_not_found_return_pointer_to_null");
+		printf("[PASS] test_if_x__is_not_found_return_pointer_to_null\n");
 	}
 }
 
