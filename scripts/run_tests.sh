@@ -32,19 +32,17 @@ echo ""
 for test_file in $(ls ft_*_test.c 2>/dev/null); do
     # Extract the function name from the test file name
     func_name=$(echo $test_file | sed 's/_test\.c$//')
-    
+
     echo -e "${YELLOW}Testing ${func_name}...${NC}"
-    
+
     # Compile and link the test with our library
     gcc -Wall -Wextra -Werror ${test_file} -L. -lft -o temp_test
 
-    #TODO: we are not caching the segmentation faults in the scripts only compilation error and error in the test
-    
     if [ $? -eq 0 ]; then
         # Run the test and capture output
         test_output=$(./temp_test)
         echo "$test_output"
-        
+
         # Check if the test had any fails
         if echo "$test_output" | grep -q "\[FAIL\]"; then
             echo -e "${RED}${func_name} tests FAILED${NC}"
@@ -54,12 +52,12 @@ for test_file in $(ls ft_*_test.c 2>/dev/null); do
     else
         echo -e "${RED}Compilation FAILED for ${func_name}${NC}"
     fi
-    
+
     # Clean up
     if [ -f "temp_test" ]; then
         rm temp_test
     fi
-    
+
     echo ""
 done
 
