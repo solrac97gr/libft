@@ -10,16 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strchr(const char *s, int c)
+#include "libft.h"
+
+/*
+ft_strchr returns a pointer to the first occurrence of the character c in the string s.
+If c is '\0', it returns a pointer to the null terminator.
+If c is not found, it returns NULL.
+*/
+char	*ft_strchr(const char *s, int c)
 {
-    char *result = '\0';
-    
-    while (*s++)
-    {
-        if (*s == c){
-            *result = *s;
-            return result;
-        }
-    }
-    return result;
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if ((char)c == '\0')
+		return ((char *)s);
+	return (0);
 }

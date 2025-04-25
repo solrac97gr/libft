@@ -23,6 +23,7 @@ Libft is a personal recreation of some useful standard C library functions. This
 - `ft_strlen` - Calculate the length of a string
 - `ft_strlcpy` - Size-bounded string copying
 - `ft_strlcat` - Size-bounded string concatenation
+- `ft_strchr` - Locate first occurrence of character in string
 
 ### Memory Functions
 - `ft_memset` - Fill memory with a constant byte
