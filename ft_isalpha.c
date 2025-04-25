@@ -10,19 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/* Include the library header file that contains function prototypes */
 #include "libft.h"
 
 /*
-isalpha check the char for validate if it is alphabetic
-- if is alphabetic: 1
-- if is not alphabetic: 0
-alphabetic char are between: 65-90 and 97 - 122
-*/
+ * ft_isalpha - Checks if the character is alphabetic
+ * @c: The character to check (passed as an int)
+ *
+ * This function tests whether a character is alphabetic (a letter).
+ * Returns:
+ * - 1 if the character is alphabetic (a letter)
+ * - 0 if the character is not alphabetic
+ *
+ * Note: In ASCII encoding:
+ * - Uppercase letters: 65-90 ('A'-'Z')
+ * - Lowercase letters: 97-122 ('a'-'z')
+ *
+ * This is a recreation of the standard C library isalpha function.
+ */
 int	ft_isalpha(int c)
 {
+	/* 
+	 * Check if the character is either:
+	 * - An uppercase letter: ASCII values 65-90 ('A'-'Z')
+	 * - A lowercase letter: ASCII values 97-122 ('a'-'z')
+	 * 
+	 * The logical OR (||) operator returns 1 if either condition is true.
+	 */
 	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 	{
+		/* If the character is alphabetic, return 1 to indicate success */
 		return (1);
 	}
+	/* If the character is not alphabetic, return 0 to indicate failure */
 	return (0);
 }

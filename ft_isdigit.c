@@ -10,19 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/* Include the library header file that contains function prototypes */
 #include "libft.h"
 
 /*
-isdigit check the char for validate if it is digit
-- if is digit: 1
-- if is not digit: 0
-digit char are between: 48-57
-*/
+ * ft_isdigit - Checks if the character is a digit
+ * @c: The character to check (passed as an int)
+ *
+ * This function tests whether a character is a decimal digit (0-9).
+ * Returns:
+ * - 1 if the character is a digit
+ * - 0 if the character is not a digit
+ *
+ * Note: In ASCII encoding, digits are represented by values 48-57 ('0'-'9').
+ *
+ * This is a recreation of the standard C library isdigit function.
+ */
 int	ft_isdigit(int c)
 {
+	/* 
+	 * Check if the character is a digit by testing if its ASCII value
+	 * is between 48 and 57 inclusive (ASCII values for '0' through '9').
+	 * The logical AND (&&) operator returns 1 only if both conditions are true.
+	 */
 	if (c >= 48 && c <= 57)
 	{
+		/* If the character is a digit, return 1 to indicate success */
 		return (1);
 	}
+	/* If the character is not a digit, return 0 to indicate failure */
 	return (0);
 }
