@@ -6,7 +6,7 @@
 #    By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/21 22:25:00 by carloga2          #+#    #+#              #
-#    Updated: 2025/04/23 19:27:44 by carloga2         ###   ########.fr        #
+#    Updated: 2025/04/25 21:03:47 by carloga2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRCS = ft_isalpha.c \
        ft_memmove.c \
        ft_strlcpy.c \
        ft_toupper.c \
-       ft_tolower.c
+       ft_tolower.c \
+       ft_strchr.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)

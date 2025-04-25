@@ -6,7 +6,7 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 19:43:04 by carloga2          #+#    #+#             */
-/*   Updated: 2025/04/23 19:29:27 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/04/25 20:57:01 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int	ft_toupper(int a);
 int	ft_tolower(int a);
+char *ft_strchr(const char *s, int c);
 
 #endif
