@@ -30,5 +30,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int	ft_toupper(int a);
 int	ft_tolower(int a);
 char *ft_strchr(const char *s, int c);
+char *ft_strrchr(const char *s, int c);
 
 #endif
