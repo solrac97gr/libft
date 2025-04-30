@@ -6,7 +6,7 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 19:43:04 by carloga2          #+#    #+#             */
-/*   Updated: 2025/04/25 20:57:01 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/04/30 14:27:01 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
-int	ft_toupper(int a);
-int	ft_tolower(int a);
-char *ft_strchr(const char *s, int c);
-char *ft_strrchr(const char *s, int c);
+int		ft_toupper(int a);
+int		ft_tolower(int a);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strrchr(const char *s, int c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
