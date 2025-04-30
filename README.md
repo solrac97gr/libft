@@ -25,6 +25,7 @@ Libft is a personal recreation of some useful standard C library functions. This
 - `ft_strlcat` - Size-bounded string concatenation
 - `ft_strchr` - Locate first occurrence of character in string
 - `ft_strrchr` - Locate last occurrence of character in string
+- `ft_strncmp` - Compare two strings up to n characters
 
 ### Memory Functions
 - `ft_memset` - Fill memory with a constant byte
