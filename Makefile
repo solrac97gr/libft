@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: solrac97gr <carloga2@student.42.fr>        +#+  +:+       +#+         #
+#    By: solrac97gr <solrac97gr@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/21 22:25:00 by carloga2          #+#    #+#              #
-#    Updated: 2025/04/30 14:30:59 by carloga2         ###   ########.fr        #
+#    Updated: 2025/04/30 23:07:23 by solrac97gr       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS = ft_isalpha.c \
        ft_strchr.c \
        ft_strrchr.c \
        ft_strncmp.c \
+       ft_memchr.c \
 
 # Object files
 OBJS = $(SRCS:.c=.o)
