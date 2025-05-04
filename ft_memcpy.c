@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Include the library header file that contains function prototypes and necessary typedefs */
+/* Include the library header file that contains function prototypes and
+ * necessary typedefs */
 #include "libft.h"
 
 /*
@@ -24,44 +25,16 @@
  *
  * Return: A pointer to dest
  */
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void    *ft_memcpy(void *dest, const void *src, size_t n)
 {
-	/* 
-	 * Declare pointers for the destination and source memory areas.
-	 * We use unsigned char pointers to ensure we're manipulating memory byte by byte.
-	 */
-	unsigned char	*d;
-	const unsigned char	*s;
+        unsigned char           *d;
+        const unsigned char     *s;
 
-	/* 
-	 * Handle edge case: if both pointers are NULL, return NULL.
-	 * This is a safety check to prevent dereferencing NULL pointers.
-	 */
-	if (!dest && !src)
-		return (NULL);
-	
-	/* 
-	 * Cast the void pointers to unsigned char pointers for byte-by-byte operations.
-	 * This is necessary because void pointers cannot be dereferenced directly.
-	 */
-	d = (unsigned char *)dest;
-	s = (const unsigned char *)src;
-	
-	/* 
-	 * Copy n bytes from source to destination, one byte at a time.
-	 * n-- decrements n after checking its value, and the loop continues until n is 0.
-	 */
-	while (n--)
-		/* 
-		 * Copy one byte from source to destination, then increment both pointers.
-		 * *d++ = *s++ is a post-increment operation:
-		 * 1. Dereference s (get the byte at the source memory location)
-		 * 2. Dereference d (access the destination memory location)
-		 * 3. Assign the source byte to the destination memory location
-		 * 4. Increment both pointers to point to the next byte
-		 */
-		*d++ = *s++;
-	
-	/* Return the original destination pointer as required by the memcpy specification */
-	return (dest);
+        if (!dest && !src)
+                return (NULL);
+        d = (unsigned char *)dest;
+        s = (const unsigned char *)src;
+        while (n--)
+                *d++ = *s++;
+        return (dest);
 }

@@ -25,17 +25,11 @@
  *
  * This is a recreation of the standard C library isascii function.
  */
-int	ft_isascii(int c)
+int     ft_isascii(int c)
 {
-	/* 
-	 * Check if the character value is within the valid ASCII range (0-127).
-	 * The logical AND (&&) operator returns 1 only if both conditions are true.
-	 */
-	if (c >= 0 && c <= 127)
-	{
-		/* If the character is a valid ASCII character, return 1 to indicate success */
-		return (1);
-	}
-	/* If the character is not a valid ASCII character, return 0 to indicate failure */
-	return (0);
+        if (c >= 0 && c <= 127)
+        {
+                return (1);
+        }
+        return (0);
 }

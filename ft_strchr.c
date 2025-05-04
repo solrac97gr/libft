@@ -24,36 +24,15 @@
  *
  * Return: Pointer to the first matching character, or NULL if not found
  */
-char	*ft_strchr(const char *s, int c)
+char    *ft_strchr(const char *s, int c)
 {
-	/* 
-	 * Loop through each character of the string until we reach the null terminator.
-	 * The loop condition *s checks if the current character is not '\0'.
-	 */
-	while (*s)
-	{
-		/* 
-		 * Check if the current character matches the character we're looking for.
-		 * We cast c to char to only compare the lowest 8 bits, as specified by strchr.
-		 */
-		if (*s == (char)c)
-			/* 
-			 * If we found a match, return a pointer to the current position in the string.
-			 * We cast the const char* to char* to match the function's return type.
-			 */
-			return ((char *)s);
-		
-		/* Move to the next character in the string */
-		s++;
-	}
-	
-	/* 
-	 * Special case: If we're looking for the null terminator ('\0'),
-	 * and we've reached the end of the string, return a pointer to it.
-	 */
-	if ((char)c == '\0')
-		return ((char *)s); /* At this point, s points to the null terminator */
-	
-	/* If the character was not found in the string, return NULL (0) */
-	return (0);
+        while (*s)
+        {
+                if (*s == (char)c)
+                        return ((char *)s);
+                s++;
+        }
+        if ((char)c == '\0')
+                return ((char *)s);
+        return (0);
 }

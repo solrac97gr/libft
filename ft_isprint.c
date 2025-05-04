@@ -28,18 +28,11 @@
  *
  * This is a recreation of the standard C library isprint function.
  */
-int	ft_isprint(int c)
+int     ft_isprint(int c)
 {
-	/* 
-	 * Check if the character is printable by testing if its ASCII value
-	 * is between 32 and 126 inclusive (from space ' ' through tilde '~').
-	 * The logical AND (&&) operator returns 1 only if both conditions are true.
-	 */
-	if (c >= 32 && c <= 126)
-	{
-		/* If the character is printable, return 1 to indicate success */
-		return (1);
-	}
-	/* If the character is not printable, return 0 to indicate failure */
-	return (0);
+        if (c >= 32 && c <= 126)
+        {
+                return (1);
+        }
+        return (0);
 }

@@ -28,20 +28,11 @@
  *
  * This is a recreation of the standard C library isalpha function.
  */
-int	ft_isalpha(int c)
+int     ft_isalpha(int c)
 {
-	/* 
-	 * Check if the character is either:
-	 * - An uppercase letter: ASCII values 65-90 ('A'-'Z')
-	 * - A lowercase letter: ASCII values 97-122 ('a'-'z')
-	 * 
-	 * The logical OR (||) operator returns 1 if either condition is true.
-	 */
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-	{
-		/* If the character is alphabetic, return 1 to indicate success */
-		return (1);
-	}
-	/* If the character is not alphabetic, return 0 to indicate failure */
-	return (0);
+        if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+        {
+                return (1);
+        }
+        return (0);
 }

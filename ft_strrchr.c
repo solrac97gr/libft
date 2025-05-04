@@ -24,41 +24,18 @@
  *
  * Return: Pointer to the last matching character, or NULL if not found
  */
-char	*ft_strrchr(const char *s, int c)
+char    *ft_strrchr(const char *s, int c)
 {
-	char	*last_occurrence;
-	
-	/* Initialize pointer to NULL, indicating the character hasn't been found yet */
-	last_occurrence = NULL;
-	
-	/* 
-	 * Loop through each character of the string until we reach the null terminator.
-	 * The loop condition *s checks if the current character is not '\0'.
-	 */
-	while (*s)
-	{
-		/* 
-		 * Check if the current character matches the character we're looking for.
-		 * We cast c to char to only compare the lowest 8 bits, as specified by strrchr.
-		 */
-		if (*s == (char)c)
-			/* 
-			 * If we found a match, update the pointer to the current position.
-			 * This will be overwritten if we find another match later.
-			 */
-			last_occurrence = (char *)s;
-		
-		/* Move to the next character in the string */
-		s++;
-	}
-	
-	/* 
-	 * Special case: If we're looking for the null terminator ('\0'),
-	 * and we've reached the end of the string, return a pointer to it.
-	 */
-	if ((char)c == '\0')
-		return ((char *)s); /* At this point, s points to the null terminator */
-	
-	/* Return the pointer to the last occurrence, or NULL if not found */
-	return (last_occurrence);
+        char    *last_occurrence;
+
+        last_occurrence = NULL;
+        while (*s)
+        {
+                if (*s == (char)c)
+                        last_occurrence = (char *)s;
+                s++;
+        }
+        if ((char)c == '\0')
+                return ((char *)s);
+        return (last_occurrence);
 }

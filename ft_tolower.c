@@ -26,35 +26,14 @@
  * - Lowercase letters: 97-122 ('a'-'z')
  * - The difference between uppercase and lowercase is 32
  *
- * Return: The converted lowercase letter or the original character if it's not 
+ * Return: The converted lowercase letter or the original character if it's not
  * an uppercase letter.
  */
-int	ft_tolower(int c)
+int     ft_tolower(int c)
 {
-	/* 
-	 * Check if the character is an uppercase letter by testing if it's within
-	 * the range of 'A' (65) to 'Z' (90) in the ASCII table.
-	 * We use character literals 'A' and 'Z' instead of their numeric values
-	 * to make the code more readable and portable.
-	 */
-	if (c >= 'A' && c <= 'Z')
-	{
-		/* 
-		 * Convert the uppercase letter to lowercase by adding the difference
-		 * between lowercase and uppercase letters in the ASCII table.
-		 * 
-		 * The conversion formula works as follows:
-		 * 1. Subtract 'A' (65) from c to get the position of the letter in the alphabet (0-25)
-		 * 2. Add 'a' (97) to get the corresponding lowercase letter
-		 * 
-		 * For example, for 'C' (67):
-		 * c - 'A' + 'a' = 67 - 65 + 97 = 2 + 97 = 99 = 'c'
-		 */
-		return (c - 'A' + 'a');
-	}
-	/* 
-	 * If the character is not an uppercase letter, return it unchanged.
-	 * This preserves the original value for all non-uppercase characters.
-	 */
-	return (c);
+        if (c >= 'A' && c <= 'Z')
+        {
+                return (c - 'A' + 'a');
+        }
+        return (c);
 }

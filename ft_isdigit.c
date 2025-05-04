@@ -26,18 +26,11 @@
  *
  * This is a recreation of the standard C library isdigit function.
  */
-int	ft_isdigit(int c)
+int     ft_isdigit(int c)
 {
-	/* 
-	 * Check if the character is a digit by testing if its ASCII value
-	 * is between 48 and 57 inclusive (ASCII values for '0' through '9').
-	 * The logical AND (&&) operator returns 1 only if both conditions are true.
-	 */
-	if (c >= 48 && c <= 57)
-	{
-		/* If the character is a digit, return 1 to indicate success */
-		return (1);
-	}
-	/* If the character is not a digit, return 0 to indicate failure */
-	return (0);
+        if (c >= 48 && c <= 57)
+        {
+                return (1);
+        }
+        return (0);
 }
