@@ -10,19 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Include the library header file that contains function prototypes and
- * typedefs */
 #include "libft.h"
 
-/*
- * ft_strlen - Calculate the length of a string
- * @s: The string whose length is to be calculated
+/**
+ * @brief Calculate the length of a string.
  *
- * Description: Calculates the length of the string s, excluding the terminating
+ * This function calculates the length of the string s, excluding the terminating
  * null byte ('\0'). This is a recreation of the standard C library strlen
  * function.
  *
- * Return: The number of bytes in the string s
+ * @param s The string whose length is to be calculated.
+ * @return size_t The number of bytes in the string s.
  */
 size_t  ft_strlen(const char *s)
 {

@@ -10,20 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Include the library header file that contains function prototypes and
- * necessary typedefs */
 #include "libft.h"
 
-/*
- * ft_memmove - Copy memory area
- * @dest: Pointer to the destination memory area
- * @src: Pointer to the source memory area
- * @n: Number of bytes to copy
+/**
+ * @brief Copy memory area safely when regions may overlap.
  *
- * Description: Copies n bytes from memory area src to memory area dest.
+ * This function copies n bytes from memory area src to memory area dest.
  * Unlike ft_memcpy, ft_memmove handles memory areas that overlap properly.
  *
- * Return: A pointer to dest
+ * @param dest Pointer to the destination memory area.
+ * @param src Pointer to the source memory area.
+ * @param n Number of bytes to copy.
+ * @return void* A pointer to dest.
  */
 void    *ft_memmove(void *dest, const void *src, size_t n)
 {

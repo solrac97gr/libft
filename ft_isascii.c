@@ -10,20 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Include the library header file that contains function prototypes */
 #include "libft.h"
 
-/*
- * ft_isascii - Checks if the character is a valid ASCII character
- * @c: The character to check (passed as an int)
+/**
+ * @brief Checks if the character is a valid ASCII character.
  *
  * This function tests whether a character is a valid ASCII character.
  * Valid ASCII characters are those with values between 0 and 127 inclusive.
- * Returns:
- * - 1 if the character is a valid ASCII character
- * - 0 if the character is not a valid ASCII character
  *
- * This is a recreation of the standard C library isascii function.
+ * @param c The character to check (passed as an int).
+ * @return int Returns 1 if the character is a valid ASCII character, 0 otherwise.
  */
 int     ft_isascii(int c)
 {

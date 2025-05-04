@@ -10,21 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Include the library header file that contains function prototypes */
 #include "libft.h"
 
-/*
- * ft_isdigit - Checks if the character is a digit
- * @c: The character to check (passed as an int)
+/**
+ * @brief Checks if the character is a digit.
  *
  * This function tests whether a character is a decimal digit (0-9).
- * Returns:
- * - 1 if the character is a digit
- * - 0 if the character is not a digit
+ * In ASCII encoding, digits are represented by values 48-57 ('0'-'9').
  *
- * Note: In ASCII encoding, digits are represented by values 48-57 ('0'-'9').
- *
- * This is a recreation of the standard C library isdigit function.
+ * @param c The character to check (passed as an int).
+ * @return int Returns 1 if the character is a digit, 0 otherwise.
  */
 int     ft_isdigit(int c)
 {

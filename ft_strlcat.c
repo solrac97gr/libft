@@ -10,23 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Include the library header file that contains function prototypes and
- * typedefs */
 #include "libft.h"
 
-/*
- * ft_strlcat - Concatenate strings with size limitation
- * @dst: Destination buffer where the string will be appended
- * @src: Source string to append to destination
- * @size: Size of the destination buffer including space for null terminator
+/**
+ * @brief Concatenate strings with size limitation.
  *
- * Description: Appends the NUL-terminated string src to the end of dst.
+ * This function appends the NUL-terminated string src to the end of dst.
  * It will append at most size - strlen(dst) - 1 bytes and NUL-terminate
  * the result, given that size > 0 and dst contains a NUL terminator.
  *
- * Return: The initial length of dst plus the length of src, indicating the
- * length of the string it tried to create (regardless of how much was actually
- * copied).
+ * @param dst Destination buffer where the string will be appended.
+ * @param src Source string to append to destination.
+ * @param size Size of the destination buffer including space for null terminator.
+ * @return size_t The initial length of dst plus the length of src, indicating the
+ *               length of the string it tried to create (regardless of how much was actually
+ *               copied).
  */
 size_t  ft_strlcat(char *dst, const char *src, size_t size)
 {

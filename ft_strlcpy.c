@@ -10,22 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Include the library header file that contains function prototypes and
- * typedefs */
 #include "libft.h"
 
-/*
- * ft_strlcpy - Copy a string to a sized buffer
- * @dst: Destination buffer where the string will be copied
- * @src: Source string to copy
- * @size: Size of the destination buffer including space for null terminator
+/**
+ * @brief Copy a string to a sized buffer.
  *
- * Description: Copies up to size - 1 characters from the NUL-terminated string
+ * This function copies up to size - 1 characters from the NUL-terminated string
  * src to dst, NUL-terminating the result if size > 0. If size is 0, dst is not
  * touched.
  *
- * Return: The total length of the string it tried to create (the length of
- * src), regardless of how much was actually copied.
+ * @param dst Destination buffer where the string will be copied.
+ * @param src Source string to copy.
+ * @param size Size of the destination buffer including space for null terminator.
+ * @return size_t The total length of the string it tried to create (the length of
+ *               src), regardless of how much was actually copied.
  */
 size_t  ft_strlcpy(char *dst, const char *src, size_t size)
 {

@@ -10,23 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Include the library header file that contains function prototypes */
 #include "libft.h"
 
-/*
- * ft_isprint - Checks if the character is printable
- * @c: The character to check (passed as an int)
+/**
+ * @brief Checks if the character is printable.
  *
  * This function tests whether a character is a printable character,
  * which includes all visible characters and the space character.
- * Returns:
- * - 1 if the character is printable
- * - 0 if the character is not printable
- *
- * Note: In ASCII encoding, printable characters are represented by
+ * In ASCII encoding, printable characters are represented by
  * values 32-126 (space through tilde '~').
  *
- * This is a recreation of the standard C library isprint function.
+ * @param c The character to check (passed as an int).
+ * @return int Returns 1 if the character is printable, 0 otherwise.
  */
 int     ft_isprint(int c)
 {

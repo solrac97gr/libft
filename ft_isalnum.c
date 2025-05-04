@@ -10,24 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Include the library header file which contains function prototypes */
 #include "libft.h"
 
-/*
- * ft_isalnum - Checks if the character is alphanumeric
- * @c: The character to check (as an int)
+/**
+ * @brief Checks if the character is alphanumeric.
  *
  * This function tests whether a character is alphanumeric (letter or digit).
- * Returns:
- * - 1 if the character is alphanumeric
- * - 0 if the character is not alphanumeric
+ * It utilizes ft_isalpha and ft_isdigit to perform the actual check.
  *
- * Note: In ASCII encoding:
- * - Uppercase letters: 65-90 ('A'-'Z')
- * - Lowercase letters: 97-122 ('a'-'z')
- * - Digits: 48-57 ('0'-'9')
- *
- * This function utilizes ft_isalpha and ft_isdigit to perform the actual check.
+ * @param c The character to check (as an int).
+ * @return int Returns 1 if the character is alphanumeric, 0 otherwise.
  */
 int     ft_isalnum(int c)
 {

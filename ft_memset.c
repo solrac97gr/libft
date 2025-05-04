@@ -10,21 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Include the library header file that contains function prototypes and
- * necessary typedefs */
 #include "libft.h"
 
-/*
- * ft_memset - Fill memory with a constant byte
- * @s: Pointer to the memory area to be filled
- * @c: Value to be set (converted to unsigned char)
- * @n: Number of bytes to be set
+/**
+ * @brief Fill memory with a constant byte.
  *
- * Description: Fills the first n bytes of the memory area pointed to by s
+ * This function fills the first n bytes of the memory area pointed to by s
  * with the constant byte c. This is a recreation of the standard C library
  * memset function.
  *
- * Return: A pointer to the memory area s
+ * @param s Pointer to the memory area to be filled.
+ * @param c Value to be set (converted to unsigned char).
+ * @param n Number of bytes to be set.
+ * @return void* A pointer to the memory area s.
  */
 void    *ft_memset(void *s, int c, size_t n)
 {

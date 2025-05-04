@@ -10,19 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Include the library header file that contains function prototypes */
 #include "libft.h"
 
-/*
- * ft_strchr - Locate character in string
- * @s: The string to search in
- * @c: The character to locate (passed as an int, converted to char)
+/**
+ * @brief Locate character in string.
  *
- * Description: Returns a pointer to the first occurrence of the character c
+ * This function returns a pointer to the first occurrence of the character c
  * in the string s. If c is '\0', it returns a pointer to the null terminator.
  * If c is not found, it returns NULL.
  *
- * Return: Pointer to the first matching character, or NULL if not found
+ * @param s The string to search in.
+ * @param c The character to locate (passed as an int, converted to char).
+ * @return char* Pointer to the first matching character, or NULL if not found.
  */
 char    *ft_strchr(const char *s, int c)
 {
