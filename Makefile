@@ -6,7 +6,7 @@
 #    By: solrac97gr <solrac97gr@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/21 22:25:00 by carloga2          #+#    #+#              #
-#    Updated: 2025/05/05 10:10:00 by solrac97gr       ###   ########.fr        #
+#    Updated: 2025/05/05 16:20:00 by solrac97gr       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS = ft_isalpha.c \
        ft_strncmp.c \
        ft_memchr.c \
        ft_strnstr.c \
+       ft_atoi.c \
 
 # Object files
 OBJS = $(SRCS:.c=.o)
