@@ -29,15 +29,6 @@ jobs:
         
     - name: Rebuild for tests
       run: make
-      
-    - name: Run tests
-      run: |
-        chmod +x scripts/run_tests.sh
-        ./scripts/run_tests.sh | tee test_output.txt
-        if grep -q "\[FAIL\]" test_output.txt; then
-          echo "Some tests failed"
-          exit 1
-        fi
         
     - name: Run make fclean and verify library is removed
       run: |
@@ -65,15 +56,16 @@ jobs:
         # Build libft first using our Makefile
         make
         
-        # Copy only the test files from the test repository
-        find tests-repo -name "ft_*_test.c" -exec cp {} . \;
+        # Copy the test files and test script from the test repository
+        cp tests-repo/ft_*_test.c .
+        cp tests-repo/scripts/run_tests.sh .
         
-        # Use our own test script which is already configured for this project
-        chmod +x scripts/run_tests.sh
-        ./scripts/run_tests.sh | tee external_test_output.txt
+        # Make the test script executable and run it
+        chmod +x run_tests.sh
+        ./run_tests.sh | tee test_output.txt
         
         # Check for test failures
-        if grep -q "\[FAIL\]" external_test_output.txt; then
-          echo "Some external tests failed"
+        if grep -q "\[FAIL\]" test_output.txt; then
+          echo "Some tests failed"
           exit 1
         fi
