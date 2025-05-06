@@ -7,7 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-test:
+  build:
+    name: Build libft
     runs-on: ubuntu-latest
     
     steps:
@@ -27,8 +28,13 @@ jobs:
           exit 1
         fi
         
-    - name: Rebuild for tests
-      run: make
+    - name: Test make re
+      run: |
+        make re
+        if [ ! -f "libft.a" ]; then
+          echo "make re did not rebuild the library"
+          exit 1
+        fi
         
     - name: Run make fclean and verify library is removed
       run: |
@@ -38,44 +44,67 @@ jobs:
           exit 1
         fi
         
-    - name: Test make re
-      run: |
-        make re
-        if [ ! -f "libft.a" ]; then
-          echo "make re did not rebuild the library"
-          exit 1
-        fi
+    - name: Upload working directory for test job
+      uses: actions/upload-artifact@v2
+      with:
+        name: libft-source
+        path: |
+          .
+          !.git
+          !.github
+  
+  test:
+    name: Run Tests
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: libft-source
+        path: .
         
-    # Run tests from external repository
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y build-essential
+      
+    - name: Build libft for tests
+      run: make
+      
     - name: Clone test repository
       run: |
         git clone https://github.com/solrac97gr/libft-test.git tests-repo
         
-    - name: Run external tests
+    - name: Prepare test environment
       run: |
         # Create a temporary test directory
         mkdir -p temp_test_dir
         cd temp_test_dir
         
-        # Copy your source files (non-test files) and header
+        # Copy all necessary files
         cp ../ft_*.c .
         cp ../libft.h .
-        
-        # Copy test files from the test repository 
         cp ../tests-repo/ft_*_test.c .
         cp ../tests-repo/scripts/run_tests.sh .
         
-        # Make the test script executable and run it
+        # Make the test script executable
         chmod +x run_tests.sh
+        
+    - name: Run tests
+      run: |
+        cd temp_test_dir
         ./run_tests.sh | tee test_output.txt
         
         # Copy the output back to the main directory
         cp test_output.txt ..
         cd ..
         
-        # Check for test failures
+        # Check for test failures and display output
         if grep -q "\[FAIL\]" test_output.txt; then
           echo "Some tests failed"
           cat test_output.txt
           exit 1
+        else
+          echo "All tests passed!"
+          cat test_output.txt
         fi
