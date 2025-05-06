@@ -28,8 +28,19 @@ fi
 echo -e "${GREEN}Libft compiled successfully${NC}"
 echo ""
 
+# Check if a specific test file is provided as an argument
+if [ "$1" ]; then
+    TEST_FILES="$1"
+    if [ ! -f "$1" ]; then
+        echo -e "${RED}Test file $1 does not exist.${NC}"
+        exit 1
+    fi
+else
+    TEST_FILES=$(ls ft_*_test.c 2>/dev/null)
+fi
+
 # Run each test
-for test_file in $(ls ft_*_test.c 2>/dev/null); do
+for test_file in $TEST_FILES; do
     # Extract the function name from the test file name
     func_name=$(echo $test_file | sed 's/_test\.c$//')
 

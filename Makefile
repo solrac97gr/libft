@@ -65,9 +65,13 @@ fclean: clean
 # Rebuild everything
 re: fclean all
 
-# Run all tests
+# Run all tests or a specific test file
 test: $(NAME)
-	./scripts/run_tests.sh
+	./scripts/run_tests.sh $(filter-out $@,$(MAKECMDGOALS))
+
+# Prevent Make from interpreting additional arguments as targets
+%:
+	@true
 
 # Non-file targets
 .PHONY: all clean fclean re test
