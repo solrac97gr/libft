@@ -38,6 +38,7 @@ SRCS = ft_isalpha.c \
        ft_strnstr.c \
        ft_atoi.c \
        ft_calloc.c \
+       ft_strdup.c \
 
 # Object files
 OBJS = $(SRCS:.c=.o)

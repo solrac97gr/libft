@@ -27,6 +27,7 @@ Libft is a personal recreation of some useful standard C library functions. This
 - `ft_strrchr` - Locate last occurrence of character in string
 - `ft_strncmp` - Compare two strings up to n characters
 - `ft_strnstr` - Locate a substring in a string (size-bounded)
+- `ft_strdup` - Duplicate a string
 
 ### Memory Functions
 - `ft_memset` - Fill memory with a constant byte
@@ -34,6 +35,7 @@ Libft is a personal recreation of some useful standard C library functions. This
 - `ft_memcpy` - Copy memory area
 - `ft_memmove` - Copy memory area (handles overlapping memory)
 - `ft_memchr` - Locate byte in memory area
+- `ft_calloc` - Allocate and zero-initialize memory
 
 ### Conversion Functions
 - `ft_atoi` - Convert a string to an integer
