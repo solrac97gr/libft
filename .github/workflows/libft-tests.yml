@@ -58,7 +58,7 @@ jobs:
     # Prototipo: Ejecutar tests desde un repositorio externo
     - name: Clone test repository
       run: |
-        git clone https://github.com/solrac97gr/libft-tests.git tests-repo
+        git clone https://github.com/solrac97gr/libft-test.git tests-repo
         
     - name: Run tests
       run: |
