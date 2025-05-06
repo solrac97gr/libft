@@ -54,3 +54,19 @@ jobs:
           echo "make re did not rebuild the library"
           exit 1
         fi
+        
+    # Prototipo: Ejecutar tests desde un repositorio externo
+    - name: Clone test repository
+      run: |
+        git clone https://github.com/solrac97gr/libft-tests.git tests-repo
+        
+    - name: Run tests
+      run: |
+        cp tests-repo/ft_*_test.c .
+        cp tests-repo/scripts/run_tests.sh .
+        chmod +x run_tests.sh
+        ./run_tests.sh | tee test_output.txt
+        if grep -q "\[FAIL\]" test_output.txt; then
+          echo "Some tests failed"
+          exit 1
+        fi
