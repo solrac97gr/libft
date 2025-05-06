@@ -37,6 +37,7 @@ SRCS = ft_isalpha.c \
        ft_memchr.c \
        ft_strnstr.c \
        ft_atoi.c \
+       ft_calloc.c \
 
 # Object files
 OBJS = $(SRCS:.c=.o)
@@ -48,26 +49,26 @@ HEADER = libft.h
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
 
 # Compile source files
 %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 # Clean object files
 clean:
-	$(RM) $(OBJS)
+	@$(RM) $(OBJS)
 
 # Clean object files and library
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 # Rebuild everything
 re: fclean all
 
 # Run all tests or a specific test file
 test: $(NAME)
-	./scripts/run_tests.sh $(filter-out $@,$(MAKECMDGOALS))
+	@./scripts/run_tests.sh $(filter-out $@,$(MAKECMDGOALS))
 
 # Prevent Make from interpreting additional arguments as targets
 %:
