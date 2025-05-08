@@ -28,6 +28,7 @@ Libft is a personal recreation of some useful standard C library functions. This
 - `ft_strncmp` - Compare two strings up to n characters
 - `ft_strnstr` - Locate a substring in a string (size-bounded)
 - `ft_strdup` - Duplicate a string
+- `ft_substr` - Extract a substring from a string
 
 ### Memory Functions
 - `ft_memset` - Fill memory with a constant byte
@@ -87,6 +88,11 @@ int main() {
     ft_memset(buffer, 'X', 10);
     buffer[9] = '\0';
     printf("Buffer after memset: %s\n", buffer);
+
+    // Example of ft_substr
+    char *substr = ft_substr(str, 7, 5);
+    printf("Substring: %s\n", substr);
+    free(substr);
 
     return 0;
 }
