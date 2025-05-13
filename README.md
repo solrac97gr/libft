@@ -52,6 +52,7 @@ Libft is a personal recreation of some useful standard C library functions. This
 ## File Descriptor Functions
 - `ft_putnbr_fd` - Print an integer to a file descriptor
 - `ft_putchar_fd` - Print a character to a file descriptor
+- `ft_putstr_fd` - Print a string to a file descriptor
 
 ## Installation
 
