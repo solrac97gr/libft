@@ -76,9 +76,18 @@ re: fclean all
 test: $(NAME)
 	@./scripts/run_tests.sh $(filter-out $@,$(MAKECMDGOALS))
 
+# Run Francinette tests
+francinette: $(NAME)
+	@if [ -d ~/francinette ]; then \
+		echo "libft" > .project_type; \
+		cd ~/francinette && ./tester.sh -p libft; \
+	else \
+		echo "Francinette not installed. Clone from https://github.com/xicodomingues/francinette.git"; \
+	fi
+
 # Prevent Make from interpreting additional arguments as targets
 %:
 	@true
 
 # Non-file targets
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re test francinette

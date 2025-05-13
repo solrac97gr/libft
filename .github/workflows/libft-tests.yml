@@ -126,20 +126,23 @@ jobs:
         chmod +x scripts/setup_for_francinette.sh
         ./scripts/setup_for_francinette.sh
         
+        # Create a custom .project_type file for Francinette
+        echo "libft" > .project_type
+        
         # Force Francinette to recognize the project as libft
         echo "Running Francinette tests for libft..."
         
         # Run basic tests first
         echo "Running basic tests..."
-        ~/francinette/tester.sh || echo "Some Francinette tests failed"
+        ~/francinette/tester.sh -p libft || echo "Some Francinette tests failed"
         
         # Run with strict mode
         echo "Running strict mode tests..."
-        ~/francinette/tester.sh --strict || echo "Some Francinette strict tests failed but continuing workflow"
+        ~/francinette/tester.sh -p libft --strict || echo "Some Francinette strict tests failed but continuing workflow"
         
         # Run specific tests using Tripouille tester
         echo "Running Tripouille libft tester..."
-        ~/francinette/tester.sh -t tripouille || echo "Some Tripouille tests failed but continuing workflow"
+        ~/francinette/tester.sh -p libft -t tripouille || echo "Some Tripouille tests failed but continuing workflow"
         
         # Report completion
         echo "Francinette tests completed"
