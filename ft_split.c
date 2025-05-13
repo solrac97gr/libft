@@ -6,20 +6,13 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 17:00:00 by carloga2          #+#    #+#             */
-/*   Updated: 2025/05/13 20:43:09 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/05/13 22:15:13 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-/**
- * @brief Counts how many substrings will be created
- *
- * @param s String to analyze
- * @param c Delimiter character
- * @return size_t Number of substrings
- */
 static size_t	count_words(const char *s, char c)
 {
 	size_t	count;
@@ -29,119 +22,77 @@ static size_t	count_words(const char *s, char c)
 	in_word = 0;
 	while (*s)
 	{
-		if (*s != c && !in_word)
+		if (*s != c && in_word == 0)
 		{
 			in_word = 1;
 			count++;
 		}
-		else if (*s == c && in_word)
+		else if (*s == c)
 			in_word = 0;
 		s++;
 	}
 	return (count);
 }
 
-/**
- * @brief Gets the length of a word until the delimiter
- *
- * @param s String containing the word
- * @param c Delimiter character
- * @return size_t Length of the word
- */
-static size_t	word_length(const char *s, char c)
+static void	free_words(char **words, size_t count)
+{
+	while (count > 0)
+		free(words[--count]);
+	free(words);
+}
+
+static int	fill_words(char **result, const char *s, char c)
 {
 	size_t	len;
+	size_t	word_i;
 
-	len = 0;
-	while (s[len] && s[len] != c)
-		len++;
-	return (len);
-}
-
-/**
- * @brief Creates a copy of a word with a specific length
- *
- * @param src Source string
- * @param len Length of the word to copy
- * @return char* Newly allocated copy of the word, or NULL if allocation fails
- */
-static char	*word_dup(const char *src, size_t len)
-{
-	char	*word;
-	size_t	i;
-
-	word = (char *)malloc(sizeof(char) * (len + 1));
-	if (!word)
-		return (NULL);
-	i = 0;
-	while (i < len)
+	word_i = 0;
+	while (*s)
 	{
-		word[i] = src[i];
-		i++;
+		if (*s != c)
+		{
+			len = 0;
+			while (s[len] && s[len] != c)
+				len++;
+			result[word_i] = ft_substr(s, 0, len);
+			if (!result[word_i])
+			{
+				free_words(result, word_i);
+				return (0);
+			}
+			word_i++;
+			s += len;
+		}
+		else
+			s++;
 	}
-	word[i] = '\0';
-	return (word);
+	result[word_i] = NULL;
+	return (1);
 }
 
 /**
- * @brief Frees all previously allocated memory in case of error
+ * @brief Splits a string into an array of strings based on a delimiter.
  *
- * @param result Array of strings
- * @param count Index up to which to free
+ * This function takes a string and splits it into an array of strings,
+ * using the specified delimiter character.
+ * The resulting array is null-terminated.
+ *
+ * @param s The string to split.
+ * @param c The delimiter character.
+ * @return An array of strings, or NULL if memory allocation fails.
  */
-static void	free_result(char **result, size_t count)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < count)
-	{
-		free(result[i]);
-		i++;
-	}
-	free(result);
-}
-
-/**
- * @brief Splits a string into an array of substrings
- *
- * This function splits 's' using the character 'c' as a delimiter. The array
- * ends with a NULL pointer. Memory for the array and each substring is
- * dynamically allocated.
- *
- * @param s The string to be split
- * @param c The delimiter character
- * @return char** A newly allocated array of strings resulting from the split,
- *         or NULL if allocation fails
- */
-char	**ft_split(char const *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	char	**result;
-	size_t	words;
-	size_t	i;
-	size_t	len;
+	size_t	word_count;
 
 	if (!s)
 		return (NULL);
-	words = count_words(s, c);
-	result = (char **)malloc(sizeof(char *) * (words + 1));
+	word_count = count_words(s, c);
+	result = malloc(sizeof(char *) * (word_count + 1));
 	if (!result)
 		return (NULL);
-	i = 0;
-	while (i < words)
-	{
-		while (*s == c)
-			s++;
-		len = word_length(s, c);
-		result[i] = word_dup(s, len);
-		if (!result[i])
-		{
-			free_result(result, i);
-			return (NULL);
-		}
-		s += len;
-		i++;
-	}
-	result[i] = NULL;
+	if (!fill_words(result, s, c))
+		return (NULL);
 	return (result);
 }
