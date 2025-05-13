@@ -6,7 +6,7 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 16:00:00 by carloga2          #+#    #+#             */
-/*   Updated: 2025/05/05 16:00:00 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/05/13 20:34:39 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,28 @@
  * @param str The string to be converted to an integer.
  * @return int The converted integer value.
  */
-int     ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-        int     result;
-        int     sign;
-        int     i;
+	int	result;
+	int	sign;
+	int	i;
 
-        result = 0;
-        sign = 1;
-        i = 0;
-        while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
-                || str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
-                i++;
-        if (str[i] == '+' || str[i] == '-')
-        {
-                if (str[i] == '-')
-                        sign = -1;
-                i++;
-        }
-        while (str[i] >= '0' && str[i] <= '9')
-        {
-                result = result * 10 + (str[i] - '0');
-                i++;
-        }
-        return (result * sign);
+	result = 0;
+	sign = 1;
+	i = 0;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
+		|| str[i] == '\f' || str[i] == '\r')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
+	return (result * sign);
 }
