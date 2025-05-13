@@ -6,11 +6,12 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 21:29:48 by carloga2          #+#    #+#             */
-/*   Updated: 2025/05/13 21:32:08 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/05/13 21:34:52 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 /**
  * @brief Outputs the integer n to the file descriptor fd.
