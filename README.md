@@ -138,6 +138,13 @@ To run Francinette locally, you can use our provided script:
 
 The script will automatically check if Francinette is installed and prompt you to install it if needed.
 
+If you have issues with Francinette not detecting your project correctly, you can run the setup helper script first:
+
+```bash
+# Set up the project structure for better Francinette detection
+./scripts/setup_for_francinette.sh
+```
+
 Alternatively, you can install and run Francinette manually:
 ```bash
 # Install Francinette
