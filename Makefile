@@ -6,7 +6,7 @@
 #    By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/21 22:25:00 by carloga2          #+#    #+#              #
-#    Updated: 2025/05/13 21:24:16 by carloga2         ###   ########.fr        #
+#    Updated: 2025/05/13 21:31:13 by carloga2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRCS = ft_isalpha.c \
        ft_itoa.c \
        ft_strmapi.c \
        ft_striteri.c \
+       ft_putnbr_fd.c \
 
 # Object files
 OBJS = $(SRCS:.c=.o)

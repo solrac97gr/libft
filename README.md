@@ -49,6 +49,9 @@ Libft is a personal recreation of some useful standard C library functions. This
 - `ft_strmapi ` - Apply a function to each character of a string and return a new string
 - `ft_striteri` - Apply a function to each character of a string with its index
 
+## File Descriptor Functions
+- `ft_putnbr_fd` - Print an integer to a file descriptor
+
 ## Installation
 
 ### Option 1: Download the latest release
