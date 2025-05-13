@@ -43,6 +43,7 @@ Libft is a personal recreation of some useful standard C library functions. This
 
 ### Conversion Functions
 - `ft_atoi` - Convert a string to an integer
+- `ft_itoa` - Convert an integer to a string
 
 ## Installation
 
