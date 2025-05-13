@@ -23,8 +23,15 @@ if [ -f "libft.h" ] || [ -f "Makefile" ] && grep -q "libft" Makefile 2>/dev/null
     # Create marker files that help Francinette with detection
     echo "libft" > .project_type
     
-    # Ensure project structure is correct
+    # Create markers to help with detection
     touch .fsoares
+    
+    # Set up Francinette cache to remember this project
+    mkdir -p ~/.cache/francinette
+    echo "$(pwd)" > ~/.cache/francinette/last_path
+    
+    # Create a symlink if needed by Francinette (some testers expect a specific structure)
+    ln -sf "$(pwd)" ~/.cache/francinette/my_libft 2>/dev/null || true
     
     # Create symbolic links if they don't exist (some testers expect specific file names)
     for file in ft_*.c; do

@@ -80,7 +80,9 @@ test: $(NAME)
 francinette: $(NAME)
 	@if [ -d ~/francinette ]; then \
 		echo "libft" > .project_type; \
-		cd ~/francinette && ./tester.sh -p libft; \
+		mkdir -p ~/.cache/francinette; \
+		echo "$(shell pwd)" > ~/.cache/francinette/last_path; \
+		cd ~/francinette && ./tester.sh; \
 	else \
 		echo "Francinette not installed. Clone from https://github.com/xicodomingues/francinette.git"; \
 	fi

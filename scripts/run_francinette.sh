@@ -93,6 +93,16 @@ if [ -f "./scripts/setup_for_francinette.sh" ]; then
     ./scripts/setup_for_francinette.sh
 fi
 
+# Create additional markers to help Francinette detect the project
+echo -e "${BLUE}Creating additional detection markers...${NC}"
+echo "libft" > .project_type
+touch .fsoares
+
+# Set path in Francinette's cache
+mkdir -p ~/.cache/francinette
+echo "$(pwd)" > ~/.cache/francinette/last_path
+ln -sf "$(pwd)" ~/.cache/francinette/my_libft 2>/dev/null || true
+
 # Set project type for our own use
 PROJECT_TYPE="libft"
 
