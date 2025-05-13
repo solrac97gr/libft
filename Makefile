@@ -6,7 +6,7 @@
 #    By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/21 22:25:00 by carloga2          #+#    #+#              #
-#    Updated: 2025/05/13 21:47:08 by carloga2         ###   ########.fr        #
+#    Updated: 2025/05/13 21:52:05 by carloga2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ SRCS = ft_isalpha.c \
        ft_putnbr_fd.c \
        ft_putchar_fd.c \
        ft_putstr_fd.c \
+       ft_putendl_fd.c \
 
 # Object files
 OBJS = $(SRCS:.c=.o)
