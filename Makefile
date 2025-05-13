@@ -6,7 +6,7 @@
 #    By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/21 22:25:00 by carloga2          #+#    #+#              #
-#    Updated: 2025/05/13 20:38:52 by carloga2         ###   ########.fr        #
+#    Updated: 2025/05/13 21:01:44 by carloga2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRCS = ft_isalpha.c \
        ft_toupper.c \
        ft_tolower.c \
        ft_strchr.c \
+       ft_strlcat.c \
        ft_strrchr.c \
        ft_strncmp.c \
        ft_memchr.c \
