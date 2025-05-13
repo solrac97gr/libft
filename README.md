@@ -124,13 +124,25 @@ The GitHub Actions workflow automatically runs the following tests on every push
 5. Tripouille libft tests (part of Francinette)
 
 #### Running Francinette Locally
-To run Francinette locally, install it with:
+To run Francinette locally, you can use our provided script:
+
 ```bash
-bash -c "$(curl -fsSL https://raw.github.com/xicodomingues/francinette/master/bin/install.sh)"
+# Run all Francinette tests
+./scripts/run_francinette.sh
+
+# Or run specific test types
+./scripts/run_francinette.sh --basic    # Run only basic tests
+./scripts/run_francinette.sh --strict   # Run tests in strict mode
+./scripts/run_francinette.sh -t         # Run Tripouille tests
 ```
 
-Then, from your project directory:
+The script will automatically check if Francinette is installed and prompt you to install it if needed.
+
+Alternatively, you can install and run Francinette manually:
 ```bash
+# Install Francinette
+bash -c "$(curl -fsSL https://raw.github.com/xicodomingues/francinette/master/bin/install.sh)"
+
 # Run basic tests
 francinette
 # Or use the shorter alias
@@ -138,8 +150,6 @@ paco
 
 # Run tests in strict mode
 francinette --strict
-# Or
-paco --strict
 
 # Run specific tests (e.g., only Tripouille tests)
 francinette -t tripouille
