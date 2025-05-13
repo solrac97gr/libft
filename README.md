@@ -29,6 +29,7 @@ Libft is a personal recreation of some useful standard C library functions. This
 - `ft_strnstr` - Locate a substring in a string (size-bounded)
 - `ft_strdup` - Duplicate a string
 - `ft_substr` - Extract a substring from a string
+- `ft_strjoin` - Concatenate two strings
 
 ### Memory Functions
 - `ft_memset` - Fill memory with a constant byte
