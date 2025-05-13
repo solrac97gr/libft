@@ -22,17 +22,38 @@ cd "$SCRIPT_DIR/.." || exit 1
 
 echo -e "${YELLOW}=== Francinette (paco) Test Runner ===${NC}"
 
+# Parse arguments first to check for CI mode
+CI_MODE=false
+for arg in "$@"; do
+    if [ "$arg" = "--ci" ]; then
+        CI_MODE=true
+        break
+    fi
+done
+
 # Check if francinette/paco is installed
 if ! command -v francinette &> /dev/null && ! command -v paco &> /dev/null; then
-    echo -e "${RED}Francinette is not installed.${NC}"
-    echo -e "${YELLOW}Would you like to install it now? (y/n)${NC}"
-    read -r answer
-    if [[ "$answer" =~ ^[Yy]$ ]]; then
-        echo -e "${BLUE}Installing Francinette...${NC}"
+    if [ -d ~/francinette ]; then
+        # Francinette is installed in home dir but not in PATH
+        echo -e "${YELLOW}Francinette found in ~/francinette but not in PATH, will use directly.${NC}"
+        CMD="~/francinette/tester.sh"
+    elif [ "$CI_MODE" = true ]; then
+        # In CI mode, install automatically
+        echo -e "${BLUE}CI mode: Installing Francinette automatically...${NC}"
         bash -c "$(curl -fsSL https://raw.github.com/xicodomingues/francinette/master/bin/install.sh)"
+        CMD="~/francinette/tester.sh"
     else
-        echo -e "${RED}Francinette is required to run these tests. Exiting.${NC}"
-        exit 1
+        # Interactive mode - ask user
+        echo -e "${RED}Francinette is not installed.${NC}"
+        echo -e "${YELLOW}Would you like to install it now? (y/n)${NC}"
+        read -r answer
+        if [[ "$answer" =~ ^[Yy]$ ]]; then
+            echo -e "${BLUE}Installing Francinette...${NC}"
+            bash -c "$(curl -fsSL https://raw.github.com/xicodomingues/francinette/master/bin/install.sh)"
+        else
+            echo -e "${RED}Francinette is required to run these tests. Exiting.${NC}"
+            exit 1
+        fi
     fi
 fi
 
@@ -47,9 +68,16 @@ if [ ! -f "libft.a" ]; then
 fi
 
 # Command to run
-CMD="francinette"
-if ! command -v francinette &> /dev/null; then
+if command -v francinette &> /dev/null; then
+    CMD="francinette"
+elif command -v paco &> /dev/null; then
     CMD="paco"
+elif [ -f ~/francinette/tester.sh ]; then
+    CMD="~/francinette/tester.sh"
+else
+    # This will only be reached if the installation failed
+    echo -e "${RED}Cannot find Francinette command.${NC}"
+    exit 1
 fi
 
 # Parse arguments
@@ -57,6 +85,7 @@ RUN_ALL=true
 RUN_BASIC=false
 RUN_STRICT=false
 RUN_TRIPOUILLE=false
+CI_MODE=false
 
 if [ "$#" -gt 0 ]; then
     RUN_ALL=false
@@ -74,9 +103,13 @@ if [ "$#" -gt 0 ]; then
             --all|-a)
                 RUN_ALL=true
                 ;;
+            --ci)
+                CI_MODE=true
+                ;;
             *)
                 echo -e "${RED}Unknown argument: $arg${NC}"
-                echo -e "${YELLOW}Usage: $0 [--basic] [--strict] [--tripouille|-t] [--all|-a]${NC}"
+                echo -e "${YELLOW}Usage: $0 [--basic] [--strict] [--tripouille|-t] [--all|-a] [--ci]${NC}"
+                echo -e "${YELLOW}  --ci: Run in non-interactive CI mode${NC}"
                 exit 1
                 ;;
         esac

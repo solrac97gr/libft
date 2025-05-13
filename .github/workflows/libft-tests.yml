@@ -138,9 +138,27 @@ jobs:
         # Make scripts executable
         chmod +x scripts/*.sh
         
-        # Run Francinette using our helper script
-        echo "Running Francinette tests for libft..."
-        ./scripts/run_francinette.sh --all || echo "Some Francinette tests failed but continuing workflow"
+        # Use run_francinette.sh with CI mode flag
+        echo "Running Francinette tests for libft using CI mode..."
+        ./scripts/run_francinette.sh --all --ci || echo "Some Francinette tests failed but continuing workflow"
+        
+        # Alternative approach if the script fails for any reason
+        if [ $? -ne 0 ]; then
+          echo "Fallback: Running Francinette directly..."
+          # Set up for Francinette
+          echo "Setting up project markers for Francinette..."
+          echo "libft" > .project_type
+          touch .fsoares
+          mkdir -p ~/.cache/francinette
+          echo "${GITHUB_WORKSPACE}" > ~/.cache/francinette/last_path
+          ln -sf "${GITHUB_WORKSPACE}" ~/.cache/francinette/my_libft 2>/dev/null || true
+          
+          # Run tests directly
+          cd ~/francinette && ./tester.sh || echo "Basic tests failed but continuing workflow"
+          cd ~/francinette && ./tester.sh --strict || echo "Strict tests failed but continuing workflow"
+          cd ~/francinette && ./tester.sh -t tripouille || echo "Tripouille tests failed but continuing workflow"
+          cd ${GITHUB_WORKSPACE}
+        fi
         
         # Report completion
         echo "Francinette tests completed"
