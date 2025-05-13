@@ -6,7 +6,7 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 19:24:38 by carloga2          #+#    #+#             */
-/*   Updated: 2025/04/21 19:57:56 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/05/13 20:42:20 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
  * @param c The character to check (passed as an int).
  * @return int Returns 1 if the character is alphabetic, 0 otherwise.
  */
-int     ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-        if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-        {
-                return (1);
-        }
-        return (0);
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+	{
+		return (1);
+	}
+	return (0);
 }

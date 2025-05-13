@@ -6,7 +6,7 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 12:00:00 by carloga2          #+#    #+#             */
-/*   Updated: 2025/05/13 12:00:00 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/05/13 20:43:20 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /**
  * @brief Joins two strings together
  *
- * This function allocates and returns a new string, which is the result 
+ * This function allocates and returns a new string, which is the result
  * of the concatenation of 's1' and 's2'.
  *
  * @param s1 The first string

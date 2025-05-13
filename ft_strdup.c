@@ -6,7 +6,7 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 21:15:00 by carloga2          #+#    #+#             */
-/*   Updated: 2025/05/06 21:15:00 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/05/13 20:48:14 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
  */
 char	*ft_strdup(const char *s1)
 {
-	char *dup;
-	size_t len;
+	char	*dup;
+	size_t	len;
 
 	len = ft_strlen(s1);
 	dup = (char *)malloc((len + 1) * sizeof(char));

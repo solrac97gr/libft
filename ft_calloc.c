@@ -6,7 +6,7 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 20:35:00 by carloga2          #+#    #+#             */
-/*   Updated: 2025/05/13 20:35:14 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/05/13 20:45:04 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
  *
  * This function allocates memory for an array of num elements,
 	each of size bytes,
-
-	* and initializes all bytes to zero. It combines the functionality of malloc and bzero.
+ * and initializes all bytes to zero.
+ *   It combines the functionality of malloc and bzero.
  *
  * @param num The number of elements to allocate
  * @param size The size of each element in bytes

@@ -6,7 +6,7 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 17:00:00 by carloga2          #+#    #+#             */
-/*   Updated: 2025/05/13 17:00:00 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/05/13 20:43:09 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  *
  * @param s String to analyze
  * @param c Delimiter character
- * @return size_t Number of substrings 
+ * @return size_t Number of substrings
  */
 static size_t	count_words(const char *s, char c)
 {
@@ -105,8 +105,8 @@ static void	free_result(char **result, size_t count)
 /**
  * @brief Splits a string into an array of substrings
  *
- * This function splits 's' using the character 'c' as a delimiter. The array 
- * ends with a NULL pointer. Memory for the array and each substring is 
+ * This function splits 's' using the character 'c' as a delimiter. The array
+ * ends with a NULL pointer. Memory for the array and each substring is
  * dynamically allocated.
  *
  * @param s The string to be split

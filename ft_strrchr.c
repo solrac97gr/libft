@@ -6,7 +6,7 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 12:00:00 by carloga2          #+#    #+#             */
-/*   Updated: 2025/04/29 12:00:00 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/05/13 20:43:42 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@
  * @param c The character to locate (passed as an int, converted to char).
  * @return char* Pointer to the last matching character, or NULL if not found.
  */
-char    *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-        char    *last_occurrence;
+	char	*last_occurrence;
 
-        last_occurrence = NULL;
-        while (*s)
-        {
-                if (*s == (char)c)
-                        last_occurrence = (char *)s;
-                s++;
-        }
-        if ((char)c == '\0')
-                return ((char *)s);
-        return (last_occurrence);
+	last_occurrence = NULL;
+	while (*s)
+	{
+		if (*s == (char)c)
+			last_occurrence = (char *)s;
+		s++;
+	}
+	if ((char)c == '\0')
+		return ((char *)s);
+	return (last_occurrence);
 }

@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: solrac97gr <solrac97gr@student.42.fr>      +#+  +:+       +#+        */
+/*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 19:43:04 by carloga2          #+#    #+#             */
-/*   Updated: 2025/05/05 16:15:00 by solrac97gr       ###   ########.fr       */
+/*   Updated: 2025/05/13 20:57:24 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FUNCTIONS_H_INCLUDED
-# define FUNCTIONS_H_INCLUDED
-
-# include <stddef.h>
+#include <stddef.h>
 
 int		ft_isalpha(int a);
 int		ft_isdigit(int a);
@@ -41,6 +38,4 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
-char    *ft_itoa(int n);
-
-#endif
+char	*ft_itoa(int n);

@@ -6,7 +6,7 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:23:04 by carloga2          #+#    #+#             */
-/*   Updated: 2025/04/30 14:23:04 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/05/13 20:43:34 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@
  *             if s1 is found, respectively, to be less than, to match,
  *             or be greater than s2.
  */
-int     ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-        size_t i;
+	size_t	i;
 
-        i = 0;
-        while (i < n && (s1[i] || s2[i]))
-        {
-                if (s1[i] != s2[i])
-                        return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-                i++;
-        }
-        return (0);
-}                                                                                                         
+	i = 0;
+	while (i < n && (s1[i] || s2[i]))
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
+}

@@ -6,7 +6,7 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 19:43:32 by carloga2          #+#    #+#             */
-/*   Updated: 2025/04/21 20:16:30 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/05/13 20:42:31 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
  * @param c The character to check (passed as an int).
  * @return int Returns 1 if the character is a digit, 0 otherwise.
  */
-int     ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-        if (c >= 48 && c <= 57)
-        {
-                return (1);
-        }
-        return (0);
+	if (c >= 48 && c <= 57)
+	{
+		return (1);
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 21:00:00 by carloga2          #+#    #+#             */
-/*   Updated: 2025/04/21 21:00:00 by carloga2         ###   ########.fr       */
+/*   Updated: 2025/05/13 20:42:36 by carloga2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@
  * @param c The character to check (passed as an int).
  * @return int Returns 1 if the character is printable, 0 otherwise.
  */
-int     ft_isprint(int c)
+int	ft_isprint(int c)
 {
-        if (c >= 32 && c <= 126)
-        {
-                return (1);
-        }
-        return (0);
+	if (c >= 32 && c <= 126)
+	{
+		return (1);
+	}
+	return (0);
 }
