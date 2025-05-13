@@ -2,3 +2,15 @@
 *.a
 .vscode
 .venv
+
+# Francinette related files
+*_FT_*
+temp-*
+temp_*
+francinette/
+paco/
+test_output.txt
+
+# Compiled test files
+temp_test
+a.out

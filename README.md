@@ -1,5 +1,7 @@
 # Libft
 
+[![Libft Tests](https://github.com/solrac97gr/libft/actions/workflows/libft-tests.yml/badge.svg)](https://github.com/solrac97gr/libft/actions/workflows/libft-tests.yml)
+
 My own implementation of standard C library functions.
 
 ## Description
@@ -104,9 +106,43 @@ int main() {
 
 ## Testing
 
-Run the tests with:
+### Local Testing
+Run the basic tests with:
 ```bash
 ./scripts/run_tests.sh
+```
+
+### Francinette Testing
+This project is set up with [Francinette](https://github.com/xicodomingues/francinette) (also known as "paco") in the GitHub Actions workflow. Francinette is a comprehensive testing framework for 42 School projects.
+
+#### CI/CD Integration
+The GitHub Actions workflow automatically runs the following tests on every push and pull request:
+1. Basic project compilation tests
+2. Custom test suite
+3. Francinette basic tests
+4. Francinette strict mode tests
+5. Tripouille libft tests (part of Francinette)
+
+#### Running Francinette Locally
+To run Francinette locally, install it with:
+```bash
+bash -c "$(curl -fsSL https://raw.github.com/xicodomingues/francinette/master/bin/install.sh)"
+```
+
+Then, from your project directory:
+```bash
+# Run basic tests
+francinette
+# Or use the shorter alias
+paco
+
+# Run tests in strict mode
+francinette --strict
+# Or
+paco --strict
+
+# Run specific tests (e.g., only Tripouille tests)
+francinette -t tripouille
 ```
 
 ## License

@@ -14,7 +14,7 @@ jobs:
     - uses: actions/checkout@v2
       
     - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -y build-essential
+      run: sudo apt-get update && sudo apt-get install -y build-essential libbsd-dev python3 python3-venv python3-pip
       
     - name: Build libft
       run: make
@@ -79,3 +79,41 @@ jobs:
           cat test_output.txt
           exit 1
         fi
+        
+    - name: Install and Run Francinette
+      run: |
+        echo "Installing Francinette..."
+        cd ${GITHUB_WORKSPACE}
+        # Clone Francinette repository
+        git clone https://github.com/xicodomingues/francinette.git ~/francinette
+        cd ~/francinette
+        
+        # Install Francinette dependencies
+        python3 -m venv .venv
+        source .venv/bin/activate
+        pip install -r requirements.txt
+        
+        # Create symlinks for easier execution
+        echo '#!/bin/bash' > ~/francinette/tester.sh
+        echo 'cd "$(dirname "$0")"' >> ~/francinette/tester.sh
+        echo 'source .venv/bin/activate' >> ~/francinette/tester.sh
+        echo 'python3 main.py "$@"' >> ~/francinette/tester.sh
+        chmod +x ~/francinette/tester.sh
+        
+        # Return to workspace and run tests
+        cd ${GITHUB_WORKSPACE}
+        
+        echo "Running Francinette tests for libft..."
+        # Run basic tests first
+        ~/francinette/tester.sh || echo "Some Francinette tests failed"
+        
+        # Run with strict mode (optional)
+        echo "Running Francinette tests in strict mode..."
+        ~/francinette/tester.sh --strict || echo "Some Francinette strict tests failed but continuing workflow"
+        
+        # Run specific tests using Tripouille tester (one of the testers included in Francinette)
+        echo "Running Tripouille libft tester..."
+        ~/francinette/tester.sh -t tripouille || echo "Some Tripouille tests failed but continuing workflow"
+        
+        # Report completion
+        echo "Francinette tests completed"
