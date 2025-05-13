@@ -31,6 +31,7 @@ Libft is a personal recreation of some useful standard C library functions. This
 - `ft_substr` - Extract a substring from a string
 - `ft_strjoin` - Concatenate two strings
 - `ft_strtrim` - Trim specified characters from beginning and end of string
+- `ft_split` - Split a string into an array of substrings using a delimiter
 
 ### Memory Functions
 - `ft_memset` - Fill memory with a constant byte
