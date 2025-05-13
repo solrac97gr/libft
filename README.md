@@ -45,6 +45,10 @@ Libft is a personal recreation of some useful standard C library functions. This
 - `ft_atoi` - Convert a string to an integer
 - `ft_itoa` - Convert an integer to a string
 
+## Functional Functions
+- `ft_strmapi ` - Apply a function to each character of a string and return a new string
+- `ft_striteri` - Apply a function to each character of a string with its index
+
 ## Installation
 
 ### Option 1: Download the latest release
