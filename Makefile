@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: solrac97gr <solrac97gr@student.42.fr>      +#+  +:+       +#+         #
+#    By: carloga2 <carloga2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/21 22:25:00 by carloga2          #+#    #+#              #
-#    Updated: 2025/05/09 12:20:00 by carloga2         ###   ########.fr        #
+#    Updated: 2025/05/13 20:38:52 by carloga2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,14 +71,6 @@ fclean: clean
 
 # Rebuild everything
 re: fclean all
-
-# Run all tests or a specific test file
-test: $(NAME)
-	@./scripts/run_tests.sh $(filter-out $@,$(MAKECMDGOALS))
-
-# Prevent Make from interpreting additional arguments as targets
-%:
-	@true
 
 # Non-file targets
 .PHONY: all clean fclean re test

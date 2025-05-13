@@ -46,39 +46,6 @@ jobs:
           exit 1
         fi
         
-    # Run tests from external repository
-    - name: Clone test repository
-      run: |
-        git clone https://github.com/solrac97gr/libft-test.git tests-repo
-        
-    - name: Run external tests
-      run: |
-        # Create a temporary test directory
-        mkdir -p temp_test_dir
-        cd temp_test_dir
-        
-        # Copy your source files (non-test files) and header
-        cp ../ft_*.c .
-        cp ../libft.h .
-        
-        # Copy test files from the test repository 
-        cp ../tests-repo/ft_*_test.c .
-        cp ../tests-repo/scripts/run_tests.sh .
-        
-        # Make the test script executable and run it
-        chmod +x run_tests.sh
-        ./run_tests.sh | tee test_output.txt
-        
-        # Copy the output back to the main directory
-        cp test_output.txt ..
-        cd ..
-        
-        # Check for test failures
-        if grep -q "\[FAIL\]" test_output.txt; then
-          echo "Some tests failed"
-          cat test_output.txt
-          exit 1
-        fi
   francinette:
     runs-on: ubuntu-latest
     name: Run Francinette
